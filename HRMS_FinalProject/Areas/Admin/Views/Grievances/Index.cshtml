@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HRMS_FinalProject.Models.Grievance>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+
+<div class="container d-flex flex-column align-items-center vh-100" style="margin-top: 20px;">
+    <h1 class="text-center">Grievance Index</h1>
+
+
+
+    <div class="table-responsive" style="max-width: 800px;">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-white">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.EmployeeID)</th>
+                    <th>Employee Name</th>
+
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.SubmissionDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.Status)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.EmployeeID)</td>
+                        <td>@(item.employee != null ? item.employee.FirstName + " " + item.employee.LastName : "N/A")</td>
+
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.SubmissionDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.GrievanceId" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.GrievanceId" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.GrievanceId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

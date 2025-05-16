@@ -1,0 +1,43 @@
+﻿@model HRMS_FinalProject.Models.Designation
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+
+<br />
+<br />
+<div class="container mt-5">
+    <h1 class="text-center">Edit Designation</h1>
+    <h4 class="text-center">Update the designation details</h4>
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="DesignationID" />
+
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label">Designation Title</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DepartmentID" class="control-label">Department</label>
+                    <select asp-for="DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
+                    <span asp-validation-for="DepartmentID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a asp-action="Index" class="btn btn-black">Back to List</a>
+    </div>
+</div>

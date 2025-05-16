@@ -1,0 +1,53 @@
+﻿@model HRMS_FinalProject.Models.LeaveType
+
+@{
+    ViewData["Title"] = "Leave Type Details";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<div class="container mt-5">
+    <h1 class="text-center">Leave Type Details</h1>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <h4 class="text-center">Details of Leave Type</h4>
+            <hr />
+            <dl class="row">
+
+                <dt class="col-sm-4 font-weight-bold text-end">
+                    @Html.DisplayNameFor(model => model.LeaveTypeName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.LeaveTypeName)
+                </dd>
+
+                <dt class="col-sm-4 font-weight-bold text-end">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-sm-4 font-weight-bold text-end">
+                   Available Days
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.DefaultAvailableDays)
+                </dd>
+
+                <dt class="col-sm-4 font-weight-bold text-end">
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CreatedAt)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HRMS_FinalProject.Models.Resignation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Employee/Views/Shared/partial_layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 class="text-center"> Resignations</h1>
+<div class="text-center mb-3">
+    <a class="btn btn-primary" asp-action="Create" asp-route-employeeName="@ViewBag.EmployeeName">Create New</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Reason) 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ResignationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResignationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ResignationId">Details</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

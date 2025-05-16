@@ -1,0 +1,97 @@
+﻿@model HRMS_FinalProject.Models.LeaveRequest
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Employee/Views/Shared/partial_reg_layout.cshtml";
+}
+
+<h1>Create</h1>
+<h4>LeaveRequest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Policy"></label>
+                <select asp-for="Policy" class="form-control" onchange="updateAvailableDays(this)">
+                    <option value="">Select Leave Type</option>
+                    @foreach (var leaveType in ViewBag.LeaveTypes)
+                    {
+                        <option value="@leaveType.Id" data-availabledays="@leaveType.DefaultAvailableDays">@leaveType.LeaveTypeName</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" type="date" onchange="calculateDuration()" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" type="date" onchange="calculateDuration()" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" readonly />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AvailableDays" class="control-label"></label>
+                <input asp-for="AvailableDays" class="form-control" readonly />
+                <span asp-validation-for="AvailableDays" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Status" class="form-label"></label>
+                <input asp-for="Status" class="form-control" value="Pending" readonly />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Reason" class="control-label"></label>
+                <input asp-for="Reason" class="form-control" />
+                <span asp-validation-for="Reason" class="text-danger"></span>
+            </div>
+
+           
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script>
+    function calculateDuration() {
+        var startDate = new Date(document.getElementById('StartDate').value);
+        var endDate = new Date(document.getElementById('EndDate').value);
+        var durationField = document.getElementById('Duration');
+
+        if (startDate && endDate && endDate > startDate) {
+            var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)); // Duration in days
+            durationField.value = duration;
+        } else {
+            durationField.value = 0; // Reset if the dates are invalid
+        }
+    }
+
+    function updateAvailableDays(select) {
+        var selectedOption = select.options[select.selectedIndex];
+        var availableDaysField = document.getElementById('AvailableDays');
+
+        // Get available days from data attribute
+        var availableDays = selectedOption.getAttribute('data-availabledays');
+        availableDaysField.value = availableDays || 0; 
+    }
+</script>

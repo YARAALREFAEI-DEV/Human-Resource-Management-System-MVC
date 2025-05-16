@@ -1,0 +1,55 @@
+﻿@model HRMS_FinalProject.Models.LeaveType
+
+@{
+    ViewData["Title"] = "Delete Leave Type";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+<br />
+<br />
+<div class="container mt-5">
+    <h1 class="text-center text-danger">Delete Leave Type</h1>
+
+    <div class="alert alert-warning text-center mt-3">
+        <h3>Are you sure you want to delete this record?</h3>
+        <p class="mb-0">This action cannot be undone.</p>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <h4 class="text-center">Leave Type Details</h4>
+            <hr />
+            <dl class="row">
+
+                <dt class="col-sm-4 font-weight-bold text-end">
+                    @Html.DisplayNameFor(model => model.LeaveTypeName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.LeaveTypeName)
+                </dd>
+
+                <dt class="col-sm-4 font-weight-bold text-end">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt class="col-sm-4 font-weight-bold text-end">
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CreatedAt)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger me-2">Delete</button>
+            <a asp-action="Index" class="btn btn-white">Cancel</a>
+        </form>
+    </div>
+</div>

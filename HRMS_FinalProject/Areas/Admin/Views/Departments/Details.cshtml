@@ -1,0 +1,47 @@
+﻿@model HRMS_FinalProject.Models.Department
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1></h1>
+
+    <div class="text-center">
+        <br />
+        <br />
+        <br />
+        <h4>Department</h4>
+        <hr />
+        <dl class="row justify-content-center">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DepartmentTitle)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DepartmentTitle)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+                 <dt class="col-sm-2">Manager</dt>
+        <dd class="col-sm-10">
+            @if (Model.DepartmentManager != null)
+            {
+                    @Model.DepartmentManager.FullNameWithDesignation
+                }
+            else
+            {
+                <span>No Manager Assigned</span>
+            }
+        </dd>
+          
+        </dl>
+    </div>
+    <div class="mt-4 text-center">
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<HRMS_FinalProject.Models.Department>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+
+<div class="container" style="margin-left: 250px; padding-top: 20px;">
+    <h1>Departments</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().DepartmentTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+               @*  <th>
+                    Manager Name
+                </th> *@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartmentTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                   @*  <td>
+                        @if (item.DepartmentManager != null)
+                        {
+                            @item.DepartmentManager.FullNameWithDesignation
+                        }
+                        else
+                        {
+                            <span>No Manager Assigned</span>
+                        }
+                    </td> *@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DepartmentID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.DepartmentID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DepartmentID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

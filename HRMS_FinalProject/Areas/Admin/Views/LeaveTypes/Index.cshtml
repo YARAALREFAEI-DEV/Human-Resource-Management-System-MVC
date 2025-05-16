@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HRMS_FinalProject.Models.LeaveType>
+
+@{
+    ViewData["Title"] = "Leave Types";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+
+<br />
+<br />
+<div class="container mt-5">
+    <h1 class="text-center">Leave Types</h1>
+
+    <p class="text-center mt-3">
+        <a asp-action="Create" class="btn btn-primary">Create New Leave Type</a>
+    </p>
+
+    <table class="table table-bordered table-hover mt-3 text-center">
+        <thead class="thead-white">
+            <tr>
+                <th class="text-end">@Html.DisplayNameFor(model => model.LeaveTypeName)</th>
+                <th class="text-end">@Html.DisplayNameFor(model => model.Description)</th>
+                <th >Available Days</th>
+
+                <th class="text-end">@Html.DisplayNameFor(model => model.CreatedAt)</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-end">@Html.DisplayFor(modelItem => item.LeaveTypeName)</td>
+                    <td class="text-end">@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td class="text-end">@Html.DisplayFor(modelItem => item.DefaultAvailableDays)</td>
+                    <td class="text-end">@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.Id" >Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" >Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,99 @@
+﻿@model HRMS_FinalProject.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Basic Information";
+    Layout = "~/Areas/Employee/Views/Shared/partial_layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<div class="container mt-8">
+    <h1 class="text-center">Employee  Profile</h1> 
+    <br />
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4>Personal Details</h4>
+            <div class="form-group">
+                <label>First Name:</label>
+                <p>@Model.FirstName</p>
+            </div>
+            <div class="form-group">
+                <label>Middle Name:</label>
+                <p>@Model.MiddleName</p>
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <p>@Model.LastName</p>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <p>@Model.Email</p>
+            </div>
+
+            <div class="form-group">
+                <label>Contact Email:</label>
+                <p>@Model.ContactEmail</p>
+            </div>
+
+            <div class="form-group">
+                <label>Phone:</label>
+                <p>@Model.Phone</p>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <p>@Model.EmployeeGender</p>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <p>
+                    @(Model.DateOfBirth.HasValue
+                        ? Model.DateOfBirth.Value.ToString("yyyy-MM-dd")
+                        : "Not provided")
+                </p>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <h4>Employment Details</h4>
+            <div class="form-group">
+                <label>Employee Type:</label>
+                <p>@Model.EmployeeType</p>
+            </div>
+            <div class="form-group">
+                <label>Hire Date:</label>
+                <p>@Model.HireDate.ToString("yyyy-MM-dd")</p>
+            </div>
+            <div class="form-group">
+                <label>Status:</label>
+                <p>@Model.EmployeeStatu</p>
+            </div>
+            <div class="form-group">
+                <label>Salary:</label>
+                <p>@Model.Salary.ToString("C")</p>
+            </div>
+            <div class="form-group">
+                <label>Address:</label>
+                <p>@Model.Address</p>
+            </div>
+            <div class="form-group">
+                <label>City:</label>
+                <p>@Model.City</p>
+            </div>
+            <div class="form-group">
+                <label>Marital Status:</label>
+                <p>@Model.MaritalStatu</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn btn-sm btn-info" asp-action="Edit" asp-route-id="@Model.EmployeeID">  Edit Profile</a>
+      
+       
+    </div>
+</div>
+
+

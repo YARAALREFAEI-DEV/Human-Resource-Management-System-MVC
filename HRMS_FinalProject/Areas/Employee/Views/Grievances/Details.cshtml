@@ -1,0 +1,43 @@
+﻿@model HRMS_FinalProject.Models.Grievance
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Employee/Views/Shared/partial_reg_layout.cshtml";
+
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Grievance</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubmissionDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubmissionDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.employee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.employee.FullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

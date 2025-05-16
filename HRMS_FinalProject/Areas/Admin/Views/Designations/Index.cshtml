@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HRMS_FinalProject.Models.Designation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/partial_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<div class="container mt-3">
+    <h1 class="text-center">Designation</h1>
+
+    <p class="text-center">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+
+    <table class="table table-bordered table-hover mt-2 mx-auto" style="width: 80%;">
+        <thead class="thead-white">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Department)
+                </th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department.DepartmentTitle)
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.DesignationID" class="btn btn-warning btn-sm">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DesignationID" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

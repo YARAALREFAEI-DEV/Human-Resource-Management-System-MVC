@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HRMS_FinalProject.Models.LeaveRequest>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Employee/Views/Shared/partial_layout.cshtml";
+}
+<br />
+<br />
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Leave Requests</h1>
+    </div>
+
+    <div class="text-center mb-3">
+        <a class="btn btn-primary" asp-action="Create" asp-route-employeeName="@ViewBag.EmployeeName">Create New</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="thead-white">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.EmployeeName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Policy)</th>
+                    <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.EndDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.Duration)</th>
+                    <th>@Html.DisplayNameFor(model => model.AvailableDays)</th>
+                    <th>@Html.DisplayNameFor(model => model.Status)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reason)</th>
+                    <th>@Html.DisplayNameFor(model => model.ApprovalDate)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.EmployeeName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Policy)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Duration)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AvailableDays)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Reason)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ApprovalDate)</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
