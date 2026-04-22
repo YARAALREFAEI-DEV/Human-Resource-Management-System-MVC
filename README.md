@@ -31,7 +31,7 @@ This project uses the ASP.NET MVC architecture and is divided into multiple Area
 - Bootstrap (for UI)
 - HTML, CSS, JavaScript, jQuery
 - Visual Studio
-- 
+
 **Project Structure**
 
 - `Areas/Admin`: All admin-side logic, views, controllers
