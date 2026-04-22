@@ -39,7 +39,7 @@ This project uses the ASP.NET MVC architecture and is divided into multiple Area
 - `Models`: Database models and ViewModels
 - `Controllers`: Main controllers (outside areas)
 - `Views`: Shared views and layouts
-- `App_Data`: Database 
+- `Data`: Database 
 
 ## Roles & Access
 
