@@ -23,14 +23,15 @@ This project uses the ASP.NET MVC architecture and is divided into multiple Area
 
  🔷Technologies Used
 
-- ASP.NET MVC 5
+- ASP.NET MVC 
 - C#
 - SQL Server
 - Entity Framework
 - ASP.NET Identity
 - Bootstrap (for UI)
 - HTML, CSS, JavaScript, jQuery
-
+- Visual Studio
+- 
 **Project Structure**
 
 - `Areas/Admin`: All admin-side logic, views, controllers
