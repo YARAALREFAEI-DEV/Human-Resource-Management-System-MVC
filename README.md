@@ -1,4 +1,4 @@
-# HRMS - Human Resource Management System (ASP.NET MVC)
+# HRMS - Human Resource Management System
 
 This is a full-featured Human Resource Management System (HRMS) built using ASP.NET MVC framework. 
 The project is designed to handle all core HR operations including employee management,leave requests, role-based access, Payroll system and more.
